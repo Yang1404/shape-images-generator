@@ -86,7 +86,8 @@ static NSString * const kBaseDirectoryName = @"data";
             
             if ([self __saveData:UIImagePNGRepresentation(image) inPath:path] && figureKey && colorKey)
             {
-                metadata[[fileName stringByAppendingPathExtension:kPicFileNameExtension]] = @{ @"color" : colorKey, @"shape" : figureKey };
+//                metadata[fileName] = @{ @"color" : colorKey, @"shape" : figureKey };
+                metadata[fileName] = @{ @"color" : @([[self __colors] indexOfObject:colorKey]/10.f), @"shape" : @([[self __figures] indexOfObject:figureKey]/10.f) };
             }
         }
     }
